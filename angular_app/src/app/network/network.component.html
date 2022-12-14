@@ -1,0 +1,14 @@
+<div [ngClass]="{leftContent: member.team === 'A' , rightContent: member.team === 'B'}">
+    <div class="panel panel-default" *ngIf="member.memberName !== ''">
+        <div class="panel-heading">{{member.memberID}}</div>
+        <!-- <div class="panel-body">{{ member.memberName }}</div> -->
+        <div class="panel-body">{{ memberName }}</div>
+        
+        <ng-content></ng-content>
+    </div>
+</div>
+
+<!--ng-content is used when you are providing something inside your component tags.
+    Like, you can send a whole new tag as a content and it will be passed thru the 
+    component and get projected in the place of it. Nice feature right, but think 
+    of places you can use it. May be like...nah, i don't know...find some-->

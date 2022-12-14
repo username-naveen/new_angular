@@ -1,0 +1,9 @@
+<p 
+    [ngStyle]="{'background-color': getColor()}"
+    [ngClass]="{online: getServerStatus() === 'Online'}">
+    The {{ 'Server' }} with the Server ID {{ getServerID() }} is now {{ getServerStatus() }}
+</p>
+<!-- here ngStyle is in [] just for binding a property to the ngStyle directive -->
+<!--
+    ngStyle is to add css properties dynamically 
+    ngClass is to add classes dynamically -->

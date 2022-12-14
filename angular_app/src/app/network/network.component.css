@@ -1,0 +1,15 @@
+.panel {
+    margin: 3px;
+}
+
+.leftContent {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.rightContent {
+    float: right;
+    width: 50%;
+    text-align: center;
+}

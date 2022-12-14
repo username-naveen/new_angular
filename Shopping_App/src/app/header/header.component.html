@@ -1,0 +1,33 @@
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- This is a standard header -->
+        <!-- <div class="navbar-header">
+            <a href="#" class="navbar-brand">Recipe Book</a>
+        </div>
+        <div class="collapse navbar-collapse"> -->
+
+        <!-- This is a collapsable header when screen size decreases a hamburger menu appears -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+              <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+            </button>
+            <a routerLink="/" class="navbar-brand">Recipe Book</a>
+        </div>
+        <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Shopping List</a></li>
+                <li><a href="#">Recipes</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Options <span class="caret" role="button"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Save List</a></li>
+                        <li><a href="#">Edit List</a></li>
+                    </ul>
+                </li>                
+            </ul>
+        </div>
+    </div>
+</div>

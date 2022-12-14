@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Solway&display=swap');
+
+*{
+    font-family: 'Bebas Neue', cursive;
+}
+
+h1 {
+    text-align: center;   
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    flex-direction: column;
+}
+
+input::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.8);
+    opacity: 0.7;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.member-input, .button{
+    text-align: center;
+    height: 50px;
+    width: 350px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    margin: 3px;
+    font-size: x-large;
+    overflow: hidden;
+}
+
+select:invalid {
+    opacity: 0.7;
+}
+
+.team-button-1, .team-button-2{
+    text-align: center;
+    height: 50px;
+    width: 172px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    margin: 3px;
+    font-size: x-large;
+    overflow: hidden;
+}
+
+/* Hide scroll in select element, that little arrow, hide. */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.button {
+    color: white;
+    background-color: rgba(32, 163, 32, 0.8);
+}
+
+/* .leftContent {
+    float: center;
+    width: 50%;
+    text-align: center;
+} */
+
+/* .rightContent {
+    float: right;
+    width: 50%;
+    text-align: center;
+} */

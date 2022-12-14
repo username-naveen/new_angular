@@ -1,0 +1,13 @@
+
+<p>employees list working fine</p>
+<div class="row">
+    <div class="col-xs-10">
+        <button class="btn btn-primary" (click)="addRandomEmployee()">Add a random employee</button>
+        <ul class="list-group" class="list-group-item"
+        *ngFor="let employee of employees"
+        [ngStyle]="{'background-color': getBackColor(employee), 'color': getForeColor(employee)}">
+            <p (click)="removeThis(i)">{{ employee.name }} - {{ employee.id }}</p>      
+        </ul>
+    </div>
+</div>
+    

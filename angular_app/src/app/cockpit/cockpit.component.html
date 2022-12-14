@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1>LET'S CREATE TEAMS</h1>
+        <hr>
+        <div class="input">
+            <input class="member-input" type="text" id='member' placeholder="PLAYER NAME" [(ngModel)]="inputMember" required>
+            <!-- <input class="member-input" type="text" id='member' placeholder="PLAYER ROLE" [(ngModel)]="inputRole" required> -->
+            <!-- <input class="member-input" type="number" id="id" placeholder="PLAYER ID" [(ngModel)]="inputID" required> -->
+            <!-- <input class="member-input" type="text" id="team" placeholder="SELECT TEAM" [(ngModel)]="inputTeam" required> -->
+            <select type="text" class="member-input" required #memberRole>
+                <option value="" id="placeholder" disabled selected hidden>PLAYER ROLE</option>
+                <option *ngFor="let playerRole of playerRoles" [ngValue]="playerRole">{{playerRole}}</option>
+            </select>
+            <select type="text" class="member-input" required #teamName>
+                <option value="" id="placeholder" disabled selected hidden>CHOOSE TEAM</option>
+                <option *ngFor="let team of teams" [ngValue]="team">{{team}}</option>
+            </select>
+            <div>
+                <button class="btn btn-default team-button-1" (click)="addToTeam(teamName, memberRole)">ADD TO TEAM</button>
+                <!-- <button class="btn btn-default team-button-2"  (click)="addToTeamB()">TEAM B</button> -->
+            </div>
+            <!-- <button class="btn btn-default button"  (click)="showTeams()">SHOW TEAMS</button> -->
+            
+        </div>
+    </div>
+</div>
+
+
+<!--Local reference, this is something that we can use in place of data binding or two way binding
+    Just add a refernce name followed by #, ie. #referenceName in any tags.
+    Note, this is only for HTML templates and not for ts or css.
+    We can also pass this referenceName as a parameter in functions which can be for the values of this.
+    Usually, this referenceName sends a HTML element itself, such as types of HTMLInputElement, HTMLSelectElement.
+    You should extract the value stored in it by referenceName.value in the end  
+    YOu can also pass local reference as a content. Like in ng-content, you just have to use that in passed component, not the 
+    passing component-->

@@ -1,0 +1,20 @@
+<p>servers works!</p>
+<input type="text" class="form-control" (input)="updateServerName($event)">
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<p>{{ serverName }}</p>
+<button class="btn btn-primary" [disabled]="!isServerOnline" (click)="onServerCreate(); updateBtn()"> {{ serverAddorRem }} </button>
+<p [innerText]="isServerOnline"></p>
+<p *ngIf="isAdd">  {{ isServerCreated }} </p>
+<app-server *ngFor="let server of servers"></app-server> 
+
+<!-- <p *ngIf="isAdd; else serverCreated">  {{ isServerCreated }} </p> 
+<ng-template #serverCreated> 
+    <p>{{ isServerScreated }}</p>
+</ng-template> -->
+
+<!-- This ngIf is only for understanding, don't look it too long, there is no business logic 
+involved here.
+
+*ngIf is for DOM to execute certain tag only if the condition is satisfied
+
+ng-template can have a maarker (#serverCreate) which can be used else where such as in else in ngIf-->
