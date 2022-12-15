@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-game-control',
@@ -7,19 +7,21 @@ import { Component, Output } from '@angular/core';
 })
 export class GameControlComponent {
 
-  @Output("anEvent") anEvent;
+  @Output("anEvent") event = new EventEmitter<{arrayOfNumber: number[]}>();
+
+  arrayOfNumber: number[] = [];
+  generateNumber;
+
   constructor() {
 
   }
 
   initializeGame() {
-    this.anEvent =
-    setInterval(() => {
-
-    }, 1000)
+    this.generateNumber = setInterval(() => this.arrayOfNumber.push(this.arrayOfNumber.length + 1), 1000)
+    this.event.emit({arrayOfNumber: this.arrayOfNumber});
   }
 
   terminateGame() {
-    clearInterval(this.anEvent);
+    clearInterval(this.generateNumber);
   }
 }
