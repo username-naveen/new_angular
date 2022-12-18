@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +13,28 @@
     <!-- <div class="wowtext">Wow, you really are a patient.</div>
     <div class="nowtext">Now please remove that cursor</div> -->
     <article class="img">
-        <img appHighlightBorder src="https://images.unsplash.com/photo-1610209455607-89e8b3e0e393?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" id="oneimg">
+        <!-- <img appHighlightBorder [defaultScale]="'105%'" [setScale]="'150%'" src="https://images.unsplash.com/photo-1610209455607-89e8b3e0e393?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" id="oneimg"> -->
+        <img *appUnless="!true" src="https://images.unsplash.com/photo-1610209455607-89e8b3e0e393?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" id="oneimg">
     </article>
 </body>
 </html>
+
+<!-- defaultScale and setScale aren't properties of the image tag. 
+    these are from the appHightLightBorder directive. 
+    Angular knows this by checking the directive first instead of the element itself.
+    These two are expected as inputs from the outside or the element the directive is used on.
+    In such cases you can also use aliases, which can also be the name of directive itself.
+    
+    Like, in directive @Input('appHighlightBorder') setScale: string;
+    In HTML, you can remove the [setScale]="'150%'" and add as [appHighlightBorder]="'150%'"
+    -->
+
+    <!-- Let's say you have a Input alias as 'class' in the custom directive, and as class is common property
+    across every element used in the HTML, when you do data-binding like, 
+    <img  appHighlightBorder [defaultScale]="'105%'" [setScale]="'150%'" class="after"> 
+    the class property used in directive gets the call. 
+    
+    if you're using as 
+    <img [class]="'before'" appHighlightBorder [defaultScale]="'105%'" [setScale]="'150%'" class="'after'"> 
+    then both will be called. Just do some experiments with it. 
+    -->

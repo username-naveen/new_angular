@@ -15,13 +15,13 @@
         </div>
         <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
             <ul class="nav navbar-nav">
-                <li><a href="#">Shopping List</a></li>
-                <li><a href="#">Recipes</a></li>
+                <li><a href="#" (click)="featureSelecte('shopping-list')">Shopping List</a></li>
+                <li><a href="#" (click)="featureSelecte('recipes')">Recipes</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Options <span class="caret" role="button"></span></a>
+                <li class="dropdown" appDropDown>
+                    <a href="#" class="dropdown-toggle" >Options <span class="caret" role="button"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Save List</a></li>
                         <li><a href="#">Edit List</a></li>

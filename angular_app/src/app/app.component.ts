@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Players } from './common_storage/players.model';
+import { UserData } from './common_storage/userData.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,13 @@ export class AppComponent implements OnInit{
   teamA: number = 1;
   teamB: number = 1;
 
+  value: number;
+
+  userData: UserData[] = [
+    new UserData('Naveen', 'User'), 
+    new UserData('Anjali', 'Admin')
+  ];
+
   /**
    * Constructors are special function. Mostly they are used to initialize something in a file
    * like creating a instance of class, variable...
@@ -21,8 +29,51 @@ export class AppComponent implements OnInit{
     
   }
 
+  dropdownList;
+  dropdownSettings;
+
+  isAdminReportEnabled: boolean;
+  isInteractiveReportEnabled: boolean;
+
   ngOnInit() {
 
+    this.isAdminReportEnabled = false;
+    this.isInteractiveReportEnabled = false;
+
+    this.dropdownList = this.getData();
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'Unselect All'
+    };
+  }
+
+  getData() {
+    return [
+      {item_id: 1, item_text: 'Admin Reporting'},
+      {item_id: 2, item_text: 'Interactive Reporting'},
+    ]
+  }
+
+  toggleFeature(event: any) {
+    
+    if (event.item_id === 1) {
+      this.isAdminReportEnabled = !this.isAdminReportEnabled;
+    }
+    if (event.item_id === 2) {
+      this.isInteractiveReportEnabled = !this.isInteractiveReportEnabled;
+    } 
+  }
+  toggleFeatures(event: any) {
+      this.isAdminReportEnabled = !this.isAdminReportEnabled;
+      this.isInteractiveReportEnabled = !this.isInteractiveReportEnabled;
+  }
+
+  receiveUserData(sendUserData: {userName: string, userRole: string}) {
+    this.userData.push(new UserData(sendUserData.userName, sendUserData.userRole));
   }
 
   teamMemberAdded(teamData: {memberName: string, memberRole: string, team: string}) {  

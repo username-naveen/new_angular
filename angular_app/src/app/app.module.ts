@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 import { AppComponent } from './app.component';
@@ -20,6 +21,12 @@ import { OneImageComponent } from './one-image/one-image.component';
 import { NetworkComponent } from './network/network.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { BetterHighlight } from './Directives/better-highlight.directive';
+import { UnlessDirective } from './Directives/unless.directive';
+import { NewUserComponent } from './new-user/new-user.component';
+import { AccountsComponent } from './accounts/accounts.component';
+import { DropDownDirective } from './Directives/drop-down.directive';
+import { DropdownComponent } from './dropdown/dropdown.component'; 
 
 const matmodules = [
   MatButtonModule, 
@@ -41,11 +48,19 @@ const matmodules = [
     OneImageComponent,
     NetworkComponent,
     CockpitComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    BetterHighlight,
+    UnlessDirective,
+    NewUserComponent,
+    AccountsComponent,
+    DropDownDirective,
+    DropdownComponent,
   ],
   imports: [
+    NgMultiSelectDropDownModule.forRoot(),
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     ...matmodules
   ],
   exports: [

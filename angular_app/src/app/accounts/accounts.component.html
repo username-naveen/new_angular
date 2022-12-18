@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{ userData.userName }} </div>
+            <div class="panel-body">
+                <p>This is a {{ userData.userRole }}</p>
+                <!-- <button >Show Admin Features</button>
+                <form *ngIf="userData.userRole === 'Admin'">
+                    <input type="checkbox" id="admin-reporting" value="ADMIN_REPORTING">
+                    <label for="admin-reporting">Admin Reporting</label>
+                    <br>
+                    <input type="checkbox" id="interactive-reporting" value="INTERACTIVE_REPORTING">
+                    <label for="interactive-reporting">Interactive Reporting</label>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form> -->
+
+                <div 
+                    class="btn-group"
+                    appDropDown>
+                    <button
+                    type="button"
+                    class="btn btn-primary dropdown-toggle"
+                    [disabled]="userData.userRole !== 'Admin'">Admin Features<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <input type="checkbox" id="admin-reporting" #adminReporting>
+                            <label for="admin-reporting">Admin Reporting</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="interactive-reporting" #interactiveReporting>
+                            <label for="interactive-reporting">Interactive Reporting</label>
+                        </li>
+                        <li><button class="btn btn-default" (click)="enableFeatures()">Submit</button></li>
+                    </ul>
+                </div>
+
+                <p *ngIf="isAdminReportEnabled">Admin reporting feature is now enabled</p>
+                <p *ngIf="isInteractiveReportingEnabled">Interactive reporting feature is now enabled</p>
+            </div>
+        </div>
+    </div>
+</div>

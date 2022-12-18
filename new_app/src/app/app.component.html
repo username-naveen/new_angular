@@ -22,7 +22,13 @@
                 <!-- <basic-assignment-iii></basic-assignment-iii> -->
                 <!-- <app-employees-list></app-employees-list> -->
                 <!-- <app-inter-dropdown></app-inter-dropdown> -->
-                <app-game-control></app-game-control>
+                <app-game-control (anEvent)="onEventFired($event)"></app-game-control>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <app-even *ngFor="let evenNumber of evenNumbers" [evenNumber]="evenNumber"></app-even>
+                        <app-odd *ngFor="let oddNumber of oddNumbers" [oddNumber]="oddNumber"></app-odd>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -45,9 +45,27 @@
 
 </html> -->
 
+<!-- ngSwitch and ngSwitchCase are used as switch cases like in python.-->
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <input type="number" placeholder="type a number" [(ngModel)]="value" min="0" max="6">
+            <div [ngSwitch]="value">
+                <p *ngSwitchCase="1"> This is One. The One </p>
+                <p *ngSwitchCase="2"> This is Two. The Two </p>
+                <p *ngSwitchCase="3"> This is Three. The Three </p>
+                <p *ngSwitchCase="4"> This is Four. The Four </p>
+                <p *ngSwitchCase="5"> This is Five. The Five </p>
+                <p *ngSwitchCase="6"> This is Six. The Six </p>
+            </div>
+        </div>
+    </div>
+</div> -->
+
 
 <!-- This is for players component that has two teams button and a input to type a player name -->
-<html>
+<!-- <html>
     <body>
         <div class="container">
             <app-cockpit 
@@ -58,14 +76,64 @@
                     <app-network *ngIf="team.memberName !== ''"
                     [teamMembers]="team"
                     [memberName]="team.memberName">
-                        <!-- this below two div, are for ng-content understanding 
-                        comment it if not needed-->
-                        <!-- <div class="panel-heading">{{team.memberID}}</div>
-                        <div class="panel-body">{{ team.memberName }}</div> -->
+                        this below two div, are for ng-content understanding 
+                        comment it if not needed
+                        <div class="panel-heading">{{team.memberID}}</div>
+                        <div class="panel-body">{{ team.memberName }}</div>
                     </app-network>
                 </div>  
             </div>  
         </div>    
     </body>
-</html>
+</html> -->
 
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <app-new-user (sendUserData)="receiveUserData($event)"></app-new-user>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-12" *ngFor="let user of userData">
+            <app-accounts [userData]="user"></app-accounts>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="drop-container">
+                <ng-multiselect-dropdown
+                    placeholder="Select a feature"
+                    [settings]="dropdownSettings"
+                    [data]="dropdownList"
+                    (onSelect)="toggleFeature($event)"
+                    (onDeSelect)="toggleFeature($event)"
+                    (onSelectAll)="toggleFeatures($event)"
+                    (onDeSelectAll)="toggleFeatures($event)">
+                </ng-multiselect-dropdown>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div *ngIf="isAdminReportEnabled" class="panel panel-default">
+                <div class="panel-heading">{{ "Admin Reporting" }}</div>
+                <div class="panel-body">
+                    <button class="btn btn-default">Add Users</button>
+                    <button class="btn btn-default">Add Groups</button>
+                </div>
+            </div>
+            <div *ngIf="isInteractiveReportEnabled" class="panel panel-default">
+                <div class="panel-heading">{{ "Interactive Reporting" }}</div>
+                <div class="panel-body">
+                    <button class="btn btn-default">Show Reports</button>
+                    <button class="btn btn-default">Show Insights</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

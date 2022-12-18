@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Local Environment</h2>
+            <hr>
+            <input class="form-control" type="text" placeholder="Type your name here..." #userName>
+            <br>
+            <select class="form-control" name="Choose role" #accessRoleSelected>
+                <option value="" id="placeholder" disabled selected hidden>Choose your role...</option>
+                <option *ngFor="let accessRole of accessRoles" [ngValue]="accessRole">{{ accessRole }}</option>
+            </select>
+            <br>
+            <button class="btn btn-success" (click)="submitUserData(userName, accessRoleSelected)">Submit</button>
+            <p *ngIf="showError">Please enter the details!</p>
+        </div>
+    </div>
+</div>

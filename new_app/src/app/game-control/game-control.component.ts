@@ -7,9 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class GameControlComponent {
 
-  @Output("anEvent") event = new EventEmitter<{arrayOfNumber: number[]}>();
+  @Output("anEvent") event = new EventEmitter<number>();
 
-  arrayOfNumber: number[] = [];
+  numberPass: number = 0;
   generateNumber;
 
   constructor() {
@@ -17,8 +17,11 @@ export class GameControlComponent {
   }
 
   initializeGame() {
-    this.generateNumber = setInterval(() => this.arrayOfNumber.push(this.arrayOfNumber.length + 1), 1000)
-    this.event.emit({arrayOfNumber: this.arrayOfNumber});
+    this.generateNumber = setInterval(() => {
+    this.event.emit(this.numberPass+1);
+    this.numberPass++;
+  }, 1000);
+    
   }
 
   terminateGame() {
