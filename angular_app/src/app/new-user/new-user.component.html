@@ -1,17 +1,22 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <h2>Local Environment</h2>
-            <hr>
-            <input class="form-control" type="text" placeholder="Type your name here..." #userName>
-            <br>
-            <select class="form-control" name="Choose role" #accessRoleSelected>
-                <option value="" id="placeholder" disabled selected hidden>Choose your role...</option>
-                <option *ngFor="let accessRole of accessRoles" [ngValue]="accessRole">{{ accessRole }}</option>
-            </select>
-            <br>
-            <button class="btn btn-success" (click)="submitUserData(userName, accessRoleSelected)">Submit</button>
-            <p *ngIf="showError">Please enter the details!</p>
+<div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset2">
+        <div class="form-group">
+            <label for="">User Name</label>
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="Your username goes here..."
+                #userName>
         </div>
+        <div class="form-group">
+            <select class="form-control" #userStatus>
+                <option value="active">Active</option>
+                <option value="disable">Disable</option>
+                <option value="locked">Locked</option>
+            </select>
+        </div>
+        <button 
+            class="btn btn-primary"
+            (click)="addUser(userName.value, userStatus.value)">Add User</button>
     </div>
 </div>

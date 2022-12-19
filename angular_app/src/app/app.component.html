@@ -87,21 +87,23 @@
     </body>
 </html> -->
 
-<!-- <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <app-new-user (sendUserData)="receiveUserData($event)"></app-new-user>
+            <app-new-user ></app-new-user>
         </div>
     </div>
     <br>
     <div class="row">
-        <div class="col-xs-12" *ngFor="let user of userData">
-            <app-accounts [userData]="user"></app-accounts>
+        <div class="col-xs-12" *ngFor="let user of userData; let i = index">
+            <app-accounts 
+                [userData]="user" 
+                [id]="i"></app-accounts>
         </div>
     </div>
-</div> -->
+</div>
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-xs-12">
             <div class="drop-container">
@@ -136,4 +138,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

@@ -27,6 +27,8 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { AccountsComponent } from './accounts/accounts.component';
 import { DropDownDirective } from './Directives/drop-down.directive';
 import { DropdownComponent } from './dropdown/dropdown.component'; 
+import { AccountsService } from './services/accountsService.service';
+import { LoggingService } from './services/loggingService.service';
 
 const matmodules = [
   MatButtonModule, 
@@ -66,7 +68,7 @@ const matmodules = [
   exports: [
     ...matmodules
   ],
-  providers: [],
+  providers: [AccountsService, LoggingService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
