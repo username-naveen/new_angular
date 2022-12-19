@@ -29,6 +29,10 @@ import { DropDownDirective } from './Directives/drop-down.directive';
 import { DropdownComponent } from './dropdown/dropdown.component'; 
 import { AccountsService } from './services/accountsService.service';
 import { LoggingService } from './services/loggingService.service';
+import { UsersService } from './services/usersService.service';
+import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { CounterService } from './services/counterService.service';
 
 const matmodules = [
   MatButtonModule, 
@@ -57,6 +61,8 @@ const matmodules = [
     AccountsComponent,
     DropDownDirective,
     DropdownComponent,
+    InactiveUsersComponent, 
+    ActiveUsersComponent,
   ],
   imports: [
     NgMultiSelectDropDownModule.forRoot(),
@@ -68,7 +74,7 @@ const matmodules = [
   exports: [
     ...matmodules
   ],
-  providers: [AccountsService, LoggingService],
+  providers: [AccountsService, LoggingService, UsersService, CounterService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

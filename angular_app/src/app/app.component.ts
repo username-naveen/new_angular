@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // import { Players } from './common_storage/players.model';
-import { UserData } from './common_storage/userData.model';
-import { AccountsService } from './services/accountsService.service';
+// import { UserData } from './common_storage/userData.model';
+// import { AccountsService } from './services/accountsService.service';
+import { UsersService } from './services/usersService.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit{
 
   // value: number;
 
-  userData: UserData[] = [];
+  // userData: UserData[] = [];
   
 
   /**
@@ -25,13 +26,13 @@ export class AppComponent implements OnInit{
    * like creating a instance of class, variable...
    * It is called everytime, when a function gets called from the file
    */
-  constructor(private AccountsService: AccountsService) {
+  // constructor(private AccountsService: AccountsService) {
     
-  }
+  // }
 
-  ngOnInit() {
-      this.userData = this.AccountsService.userData;
-  }
+  // ngOnInit() {
+  //     this.userData = this.AccountsService.userData;
+  // }
 
   // Below 34 - 80 are for dropdown selection
 
@@ -112,4 +113,8 @@ export class AppComponent implements OnInit{
     
   // }
 
+  constructor() { }
+  
+  ngOnInit() {
+  }
 }
