@@ -1,0 +1,6 @@
+{
+    "/api": {
+    "target": "https://nrs.dev-vm-blr6.lab.opentext.com:443",
+    "secure": false
+    }
+    }

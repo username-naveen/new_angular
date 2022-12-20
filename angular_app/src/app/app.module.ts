@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -33,6 +34,8 @@ import { UsersService } from './services/usersService.service';
 import { InactiveUsersComponent } from './inactive-users/inactive-users.component';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { CounterService } from './services/counterService.service';
+import { ReportsComponent } from './reports/reports.component';
+import { TokenInterceptor } from './services/api-interceptor.service';
 
 const matmodules = [
   MatButtonModule, 
@@ -62,9 +65,10 @@ const matmodules = [
     DropDownDirective,
     DropdownComponent,
     InactiveUsersComponent, 
-    ActiveUsersComponent,
+    ActiveUsersComponent, ReportsComponent,
   ],
   imports: [
+    HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
     BrowserModule,
     FormsModule,
@@ -74,7 +78,15 @@ const matmodules = [
   exports: [
     ...matmodules
   ],
-  providers: [AccountsService, LoggingService, UsersService, CounterService],
+  providers: [{
+
+    provide: HTTP_INTERCEPTORS,
+
+    useClass: TokenInterceptor,
+
+    multi: true
+
+   }, AccountsService, LoggingService, UsersService, CounterService ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
