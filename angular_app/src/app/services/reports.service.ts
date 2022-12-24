@@ -59,20 +59,20 @@ export class ReportsService {
             .subscribe((x: obj) => {
                 this.bearerToken = x.access_token;
                 console.log('this.tokenthis.tokenthis.tokenthis.tokenthis.token')
-                const headers = new HttpHeaders({
-                    'Content-Type': 'application/json',
+                const headers = {
                     'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
                     'Access-Control-Allow-Credentials': 'true',
                     'Access-Control-Allow-Headers': 'Content-Type',
                     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
                     'Accept': '*/*',
                     'Accept-Encoding': 'gzip, deflate, br',
                     'Authorization': `Bearer ${this.bearerToken}`
-                });
+                };
 
-                this.http.post('https://nrs.dev-vm-blr6.lab.opentext.com/api/v1/feature-control/configs/adminReporting/on', null, { params: {}, headers: headers })
+                this.http.post('https://nrs.dev-vm-blr6.lab.opentext.com/api/v1/feature-control/configs/adminReporting/on', null, { params: {}, headers: headers }).pipe(map(res => res))
                     .subscribe(res => {
-                        console.log('testiiiiiiii');
+                        console.log('testiiiiiiii', res);
                     }
                     )
             });
