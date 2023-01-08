@@ -7,12 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Shopping_App';
-
-  featureSelect: string = 'recipes';
   isRecipes: boolean = true;
 
   navigateTo(feature: string) {
-    this.featureSelect = feature;
     this.isRecipes = feature === 'recipes';
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
 // import { Players } from './common_storage/players.model';
 // import { UserData } from './common_storage/userData.model';
 // import { AccountsService } from './services/accountsService.service';
@@ -113,8 +114,7 @@ export class AppComponent implements OnInit{
     
   // }
 
-  constructor() { }
-  
   ngOnInit() {
+    
   }
 }

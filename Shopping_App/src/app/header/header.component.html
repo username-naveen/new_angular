@@ -15,16 +15,16 @@
         </div>
         <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
             <ul class="nav navbar-nav">
-                <li><a href="#" (click)="featureSelecte('shopping-list')">Shopping List</a></li>
-                <li><a href="#" (click)="featureSelecte('recipes')">Recipes</a></li>
+                <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping List</a></li>
+                <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown" appDropDown>
-                    <a href="#" class="dropdown-toggle" >Options <span class="caret" role="button"></span></a>
+                    <a style="cursor: pointer" class="dropdown-toggle" >Options <span class="caret" role="button"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Save List</a></li>
-                        <li><a href="#">Edit List</a></li>
+                        <li><a style="cursor: pointer">Save List</a></li>
+                        <li><a style="cursor: pointer">Edit List</a></li>
                     </ul>
                 </li>                
             </ul>

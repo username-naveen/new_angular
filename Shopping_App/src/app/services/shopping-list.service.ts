@@ -1,8 +1,8 @@
-import { EventEmitter } from "@angular/core";
+import { Subject } from "rxjs";
 import { Ingredients } from "../shared-components/ingredients.model";
 
 export class ShoppingListService {
-    newIngredientAdded = new EventEmitter<Ingredients[]>();
+    newIngredientAdded = new Subject<Ingredients[]>();
     private ingredients: Ingredients[] = [
         new Ingredients('Apples', 5),
         new Ingredients('Mangoes', 6)
@@ -19,12 +19,16 @@ export class ShoppingListService {
     // we can use this emitter and send again a new slice of the property
     addIngredient(ingredient: Ingredients) {
         this.ingredients.push(ingredient);
-        this.newIngredientAdded.emit(this.ingredients.slice());
+        // this.newIngredientAdded.emit(this.ingredients.slice());
+        this.newIngredientAdded.next(this.ingredients.slice());
     }
+
+    // the next is used when we use Subject from rxjs, instead of EventEmitter
     
     addIngredients(ingredients: Ingredients[]) {
         this.ingredients.push(...ingredients);
-        this.newIngredientAdded.emit(this.ingredients.slice());
+        // this.newIngredientAdded.emit(this.ingredients.slice());
+        this.newIngredientAdded.next(this.ingredients.slice());
     }
 
 }

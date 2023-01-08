@@ -36,6 +36,9 @@ import { ActiveUsersComponent } from './active-users/active-users.component';
 import { CounterService } from './services/counterService.service';
 import { ReportsComponent } from './reports/reports.component';
 import { TokenInterceptor } from './services/api-interceptor.service';
+import { TemplateDrivenComponent } from './Forms/template-driven/template-driven.component';
+import { TemplateDrivenExerciseComponent } from './Forms/template-driven-exercise/template-driven-exercise.component';
+import { ReactiveFormsComponent } from './Forms/reactive-forms/reactive-forms.component';
 
 const matmodules = [
   MatButtonModule, 
@@ -65,7 +68,11 @@ const matmodules = [
     DropDownDirective,
     DropdownComponent,
     InactiveUsersComponent, 
-    ActiveUsersComponent, ReportsComponent,
+    ActiveUsersComponent, 
+    ReportsComponent, 
+    TemplateDrivenComponent, 
+    TemplateDrivenExerciseComponent, 
+    ReactiveFormsComponent,
   ],
   imports: [
     HttpClientModule,
