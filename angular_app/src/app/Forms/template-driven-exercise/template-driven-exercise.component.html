@@ -38,19 +38,36 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input
-                        id="password" 
-                        type="password"
-                        ngModel
-                        class="form-control"
-                        name="password"
-                        required
-                        #password="ngModel">
+                    id="password" 
+                    type="password"
+                    ngModel
+                    class="form-control"
+                    name="password"
+                    required
+                    #password="ngModel">
                     <span class="help-block" *ngIf="!password.valid && password.touched">Please provide a password!</span>
                 </div>
-                <p class="help-block" *ngIf="!f.valid">Form is invalid!</p>
+                <div class="form-group">
+                    <label for="fromDate">From: </label> 
+                        <input 
+                            id="fromDate"
+                            type="date" 
+                            [(ngModel)]="fromDate" 
+                            name="fromDate" 
+                            class="form-control">
+                    <label for="toDate">To: </label>
+                        <input 
+                            id="toDate"
+                            type="date" 
+                            [(ngModel)]="toDate" 
+                            name="toDate" 
+                            class="form-control"
+                            dateValidator>
+                </div>
+                <p class="help-block" *ngIf="!f.valid && f.touched">Form is invalid!</p>
                 <button 
-                    class="btn btn-primary"
-                    [disabled]="!f.valid">Submit</button>
+                class="btn btn-primary"
+                [disabled]="!f.valid">Submit</button>
             </div>
         </form>
         <!-- Add a Form with the following Inputs (and Validators)

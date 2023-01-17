@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -39,8 +42,11 @@ import { TokenInterceptor } from './services/api-interceptor.service';
 import { TemplateDrivenComponent } from './Forms/template-driven/template-driven.component';
 import { TemplateDrivenExerciseComponent } from './Forms/template-driven-exercise/template-driven-exercise.component';
 import { ReactiveFormsComponent } from './Forms/reactive-forms/reactive-forms.component';
+import { ReactiveFormsExerciseComponent } from './Forms/reactive-forms-exercise/reactive-forms-exercise.component';
+import { DateValidatorDirective } from './Directives/date-validator.directive';
 
 const matmodules = [
+  MatDatepickerModule,
   MatButtonModule, 
   MatFormFieldModule,
   MatInputModule,
@@ -72,7 +78,7 @@ const matmodules = [
     ReportsComponent, 
     TemplateDrivenComponent, 
     TemplateDrivenExerciseComponent, 
-    ReactiveFormsComponent,
+    ReactiveFormsComponent, ReactiveFormsExerciseComponent, DateValidatorDirective,
   ],
   imports: [
     HttpClientModule,
@@ -80,7 +86,9 @@ const matmodules = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    ...matmodules
+    MatDatepickerModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
   ],
   exports: [
     ...matmodules

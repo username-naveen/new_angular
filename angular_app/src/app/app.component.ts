@@ -10,6 +10,8 @@ import { UsersService } from './services/usersService.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit{
+  startDate: Date;
+  endDate: Date;
   // name = 'Naveen'; //this name is just for learning purpose of data binding you did, so don't confuse
   
   // 13 - 15 network component and cockpit 
