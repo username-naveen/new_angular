@@ -29,6 +29,10 @@ const routes: Routes = [
         path: 'shopping-list', 
         component: ShoppingListComponent,
     },
+    {
+        path: 'shopping-edit',
+        component: ShoppingEditComponent
+    }
 ]
 
 @NgModule({

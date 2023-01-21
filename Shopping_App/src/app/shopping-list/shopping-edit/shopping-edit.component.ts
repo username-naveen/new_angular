@@ -1,4 +1,5 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ShoppingListService } from 'src/app/services/shopping-list.service';
 import { Ingredients } from 'src/app/shared-components/ingredients.model';
 
@@ -14,7 +15,7 @@ export class ShoppingEditComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  addRecipe(recipeName: string, recipeAmount: number) {
-    this.shoppingListService.addIngredient(new Ingredients(recipeName, recipeAmount));  
+  addRecipe(f: NgForm) {
+    this.shoppingListService.addIngredient(new Ingredients(f.control.get('recipe-name').value, f.control.get('amount').value));  
   }
 }
