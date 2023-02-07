@@ -3,6 +3,7 @@ import { Ingredients } from "../shared-components/ingredients.model";
 
 export class ShoppingListService {
     newIngredientAdded = new Subject<Ingredients[]>();
+    ingredientEdit = new Subject<number>();
     private ingredients: Ingredients[] = [
         new Ingredients('Apples', 5),
         new Ingredients('Mangoes', 6)
@@ -11,6 +12,10 @@ export class ShoppingListService {
     getIngredients() {
         return this.ingredients.slice();
     };
+
+    getIngredientByIndex(index: number) {
+        return this.ingredients[index];
+    }
     
     // you might think that why we are emitting this.ingredients from here
     // while we have getIngredients. This is because, the slice method copies the 
@@ -28,6 +33,11 @@ export class ShoppingListService {
     addIngredients(ingredients: Ingredients[]) {
         this.ingredients.push(...ingredients);
         // this.newIngredientAdded.emit(this.ingredients.slice());
+        this.newIngredientAdded.next(this.ingredients.slice());
+    }
+
+    updateIngredient(index: number, updatedIngredient: Ingredients) {
+        this.ingredients[index] = updatedIngredient;
         this.newIngredientAdded.next(this.ingredients.slice());
     }
 
