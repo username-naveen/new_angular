@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-xs-12">
+        <img [src]="data.productImage">
+        <h4>{{ data.productName }}</h4>
+        <h5>{{ data.productPrice }}</h5>
+    <h5>{{ data.productPrice | currency: code }}</h5>
+        <h5>{{ data.productPrice | discount }}</h5>
+        <!-- Pipes comes into pictre when you use/call a function in a template.-->
+        <!-- {{ discountCal() }}  -->
+        <!-- never call functions inside a template file -->
+        <button type="button" (click)="notifyParent()">Add to cart</button>
+    </div>
+</div>

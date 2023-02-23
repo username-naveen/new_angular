@@ -1,0 +1,8 @@
+<button type="button" (click)="triggerChangeDetection()">triggerChangeDetectio</button>
+<div *ngFor="let p of plist">
+    <app-product 
+        [code]="selectedCode"
+        [data]="p" 
+        (btnClick)="addItem()"
+        ></app-product>
+</div>
