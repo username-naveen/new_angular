@@ -4,8 +4,12 @@ import { Ingredients } from "../shared-components/ingredients.model";
 import { Recipe } from "../shared-components/recipe.model";
 import { ShoppingListService } from "./shopping-list.service";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class RecipeService {
+
+    recipeChanged = new Subject<Recipe[]>();
 
     constructor(private shoppinListService: ShoppingListService) {
 
@@ -45,5 +49,20 @@ export class RecipeService {
 
     addIngredientsToShoppingList(ingredients: Ingredients[]) {
         this.shoppinListService.addIngredients(ingredients);
+    }
+
+    addRecipe(recipe: Recipe) {
+        this.recipes_list.push(recipe);
+        this.recipeChanged.next(this.recipes_list.slice());
+    }
+    
+    updateRecipe(id: number, newRecipe: Recipe) {
+        this.recipes_list[id] = newRecipe;
+        this.recipeChanged.next(this.recipes_list.slice());
+    }
+
+    deleteRecipe(id: number) {
+        this.recipes_list.splice(id, 1);
+        this.recipeChanged.next(this.recipes_list.slice());
     }
 }

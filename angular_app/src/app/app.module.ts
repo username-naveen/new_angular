@@ -11,7 +11,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 import { AppComponent } from './app.component';
 import { ServerComponent } from "./server/server.component";
 import { ServersComponent } from './servers/servers.component';
@@ -44,13 +43,7 @@ import { TemplateDrivenExerciseComponent } from './Forms/template-driven-exercis
 import { ReactiveFormsComponent } from './Forms/reactive-forms/reactive-forms.component';
 import { ReactiveFormsExerciseComponent } from './Forms/reactive-forms-exercise/reactive-forms-exercise.component';
 import { DateValidatorDirective } from './Directives/date-validator.directive';
-
-const matmodules = [
-  MatDatepickerModule,
-  MatButtonModule, 
-  MatFormFieldModule,
-  MatInputModule,
-];
+import { DateFilterComponent } from './date-filter/date-filter.component';
 
 @NgModule({
   declarations: [
@@ -78,20 +71,25 @@ const matmodules = [
     ReportsComponent, 
     TemplateDrivenComponent, 
     TemplateDrivenExerciseComponent, 
-    ReactiveFormsComponent, ReactiveFormsExerciseComponent, DateValidatorDirective,
+    ReactiveFormsComponent, ReactiveFormsExerciseComponent, DateValidatorDirective, DateFilterComponent,
   ],
   imports: [
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
     BrowserModule,
     FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
     BrowserAnimationsModule,
   ],
   exports: [
-    ...matmodules
+    MatDatepickerModule,
+    MatButtonModule, 
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [{
 
